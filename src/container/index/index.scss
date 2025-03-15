@@ -1,7 +1,78 @@
-@use '../../style' as s;
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px #CED4DA;
+  padding: 24px;
+  max-width: 720px;
+}
+.header {
+  font-size: 24px;
+}
+.form {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  &__input {
+    width: 100%;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    &::placeholder {
+      color: #909294;
+    }
+  }
+  &__button {
+    background-color: #0D6EFD;
+    color: #FFFFFF;
+    padding: 8px 20px;
+    border-radius: 4px;
+    transition: opacity 0.7s;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+.task {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  border-bottom: 1px solid #D3DEE9;
+  padding: 8px 0px;
+  &__list {
+    padding: 12px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__text {
+    transition: opacity 0.7s;
+    font-size: 16px;
+  }
+  &--done &__text {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  &__button {
+    transition: opacity 0.7s;
+    &:hover {
+      opacity: 0.5;
+    }
+    min-width: 28px;
+    height: 28px;
+    background-size: cover;
 
-main {
-	background: s.color(dark);
-	color: s.color(light);
-	padding: s.space(4);
-} 
+    &--do {
+      background-image: url('/svg/button-do.svg');
+    }
+    &--done {
+      background-image: url('/svg/button-done.svg');
+    }
+    &--delete {
+      background-image: url('/svg/button-delete.svg');
+    }
+  }
+}
